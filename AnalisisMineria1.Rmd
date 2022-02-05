@@ -1,0 +1,19 @@
+---
+title: "HDT1"
+author: "AndresEmilioQ, Mirka M, Oscar de Leon"
+date: "4/2/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+datos <- read.csv("movies.csv")
+```
+
+A continuacion los datos recopilados de la base de datos y sus caracteristicas
+
+El conjunto de datos esta compuesto por `r nrow(datos)` observaciones y `r ncol (datos)` variables.
+
+## Descripcion de las variables
