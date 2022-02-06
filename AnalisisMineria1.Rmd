@@ -2,7 +2,9 @@
 title: "HDT1"
 author: "AndresEmilioQ, Mirka M, Oscar de Leon"
 date: "4/2/2022"
-output: html_document
+output:
+  html_document:
+    code_folding: hide
 ---
 
 ```{r setup, include=FALSE}
@@ -45,47 +47,72 @@ Referencia y expliacion detallada: https://economipedia.com/definiciones/curtosi
 library(e1071)
 
 ## Popularidad
+
 popularity = datos$popularity
+"Kurtosis de popularidad"
 kurtosis(popularity)
 
 #Presupuesto
 budget = datos$budget
+"Kurtosis de budget"
 kurtosis(budget)
 
 #Ingresos
 revenue = datos$revenue
+"Kurtosis de revenue"
 kurtosis(revenue)
 
 #Duración
 runtime = datos$runtime
+"Kurtosis de runtime"
 kurtosis(runtime)
 
 #Votos
 vote_count = datos$voteCount
+"Kurtosis de VoteCount"
 kurtosis(vote_count)
 
 #Promedio de votos
 vote_average = datos$voteAvg
+"Kurtosis de VoteAvg"
 kurtosis(vote_average)
-hist(vote_average)
 
 #Cantidad de generos
 GenresA = datos$genresAmount
+"Kurtosis de GenresAmount"
 kurtosis(GenresA)
 
 #Cantidad de co productora 
 ProductionCoA = datos$productionCoAmount
+"Kurtosis de productionCoAmount"
 kurtosis(ProductionCoA)
 
 #Cantidad de productoras por pais
 ProducCountrieA = datos$productionCountriesAmount
+"Kurtosis de ProductCountriesAmount"
 kurtosis(ProducCountrieA)
 
 #Cantidad de actores
 ActorsA = datos$actorsAmount
+"Kurtosis de ActorsAmount"
 kurtosis(ActorsA)
 
+#Cantiddad de actores Masculinos
+#Esta kurtosis la realizamos en excel debido a que la base de datos presenta datos no numericos en ciertas celdas
+ActoresM = datos$castMenAmount
+ActoresM <- na.omit(ActoresM)
+b <- 43.93458
+"Kurtosis de CastMenAmount"
+b
+#kurtosis(ActoresM)
 
+#Cantiddad de actrices Femenina
+#Esta kurtosis la realizamos en excel debido a que la base de datos presenta datos no numericos en ciertas celdas
+ActricesF = datos$castWomenAmount
+a <- 108.7062
+"Kurtosis de CastWomenAmount"
+a
+#kurtosis(ActricesF)
 ```
 
 
