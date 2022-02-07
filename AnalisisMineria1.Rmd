@@ -50,7 +50,6 @@ library(e1071)
 
 popularity = datos$popularity
 "Kurtosis de popularidad"
-kurtosis(popularity)
 
 #Presupuesto
 budget = datos$budget
@@ -116,6 +115,8 @@ a
 ```
 
 ##### Variables cualitativas tabla de frecuencias
+Para las variables cualitativas realizamos tablas de frecuencia con la ayuda de data frames para poder observar y analizar los datos de mejor manera. Se ignoro la variable id debido a que se determino a que no aporta al analisis estadistico. Se noto que distintas variables contaban con valores vacios, se llenaron con NA y otros varios estaban acompañados por slash o pipe, por lo cual se decidio hacer un split para estos terminos. 
+
 ```{r}
 library(tidyr)
 #Generos
@@ -168,4 +169,66 @@ language <- data.frame(table(datos$originalLanguage))
 #fecha
 release_date <- data.frame(table(datos$releaseDate))
 ```
+
+## 4. Responda las siguientes preguntas:  
+### 4.4 ¿Cuál es la peor película de acuerdo a los votos de todos los usuarios?
+A continuacion las dos peor votadas
+```{r}
+# peorvotadas <- datos[order(datos$voteAvg),]
+#peorvotadas <- peorvotadas[1,]
+#na.omit(peorvotadas)
+peorvotadas <- data.frame(datos$voteAvg, datos$title)
+lapeor <- data.frame(peorvotadas[order(peorvotadas$datos.voteAvg),])
+head(lapeor,2)
+```
+
+### 4.5 ¿Cuántas  películas  se  hicieron  en  cada  año?  ¿En  qué  año  se  hicieron  más películas? Haga un gráfico de barras 
+
+```{r}
+
+Dates <- data.frame(datos$title, datos$releaseDate)
+PorAnioDesc <- data.frame(Dates[order(Dates$datos.releaseDate),])
+year1 <- data.frame(table(substring(PorAnioDesc$datos.releaseDate,1,4)))
+finales <- as.numeric(substring(PorAnioDesc$datos.releaseDate,1,4))
+hist(finales,breaks = 100)
+```
+
+
+### 4.6 ¿Cuál es el género principal de las 20 películas más recientes? ¿Cuál es el género principal que predomina en el conjunto de datos? Represéntelo usando un gráfico 
+
+A continuacion el top20:
+```{r}
+LicaPopular <- datos[order(datos$popularity,decreasing = TRUE),]
+top20 <- LicaPopular[1:20,c("genres")]
+genres20 <- unlist(strsplit(as.character(top20), "\\|"))
+genres20
+
+```
+Para encontrar el genero principal predominante debemos separar la lista, debido a que las peliculas cuentan con mas de un genero.
+
+```{r}
+getmode <- function(v) {
+  uniqv <- unique(v)
+  uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+topGenre20 <- getmode(genres20)
+"Se encontro que el genero principal de las peliculas es:"
+topGenre20
+
+totalGenres <- unlist(strsplit(as.character(datos$genres), "\\|"))
+barplot(table(totalGenres))
+```
+
+
+### 4.7 ¿Las películas de qué genero principal obtuvieron mayores ganancias?
+
+```{r}
+
+worth <- data.frame(datos$revenue, datos$genres, datos$title)
+ordenadas <- data.frame(worth[order(-datos$revenue), ])
+"Las peliculas del genero de accion fueron las que obtuvieron mayores ganancias"
+head(ordenadas, 5)
+
+```
+
 
