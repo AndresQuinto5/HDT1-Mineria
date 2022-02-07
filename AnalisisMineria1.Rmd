@@ -3,8 +3,10 @@ title: "HDT1"
 author: "AndresEmilioQ, Mirka M, Oscar de Leon"
 date: "4/2/2022"
 output:
+  word_document: default
   html_document:
     code_folding: hide
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}

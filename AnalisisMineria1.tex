@@ -1,0 +1,718 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\title{HDT1}
+\author{AndresEmilioQ, Mirka M, Oscar de Leon}
+\date{4/2/2022}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={HDT1},
+  pdfauthor={AndresEmilioQ, Mirka M, Oscar de Leon},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(dplyr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Attaching package: 'dplyr'
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+\end{verbatim}
+
+\begin{verbatim}
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"movies.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{a-continuacion-los-datos-recopilados-de-la-base-de-datos-y-sus-caracteristicas}{%
+\subsection{A continuacion los datos recopilados de la base de datos y
+sus
+caracteristicas}\label{a-continuacion-los-datos-recopilados-de-la-base-de-datos-y-sus-caracteristicas}}
+
+\hypertarget{el-conjunto-de-datos-esta-compuesto-por-10000-observaciones-y-27-variables.}{%
+\subsection{El conjunto de datos esta compuesto por 10000 observaciones
+y 27
+variables.}\label{el-conjunto-de-datos-esta-compuesto-por-10000-observaciones-y-27-variables.}}
+
+\hypertarget{diga-el-tipo-de-cada-una-de-las-variables-cualitativa-ordinal-o-nominal-cuantitativa}{%
+\subsection{2. Diga el tipo de cada una de las variables (cualitativa
+ordinal o nominal,
+cuantitativa}\label{diga-el-tipo-de-cada-una-de-las-variables-cualitativa-ordinal-o-nominal-cuantitativa}}
+
+continua, cuantitativa discreta)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{variable }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"id"}\NormalTok{, }\StringTok{"popularity"}\NormalTok{, }\StringTok{"budget"}\NormalTok{, }\StringTok{"revenue"}\NormalTok{, }\StringTok{"original\_title"}\NormalTok{, }\StringTok{"originalLanguage"}\NormalTok{, }\StringTok{"title"}\NormalTok{, }\StringTok{"homePage"}\NormalTok{, }\StringTok{"video"}\NormalTok{, }\StringTok{"director"}\NormalTok{, }\StringTok{"runtime"}\NormalTok{, }\StringTok{"genres"}\NormalTok{, }\StringTok{"genresAmount"}\NormalTok{, }\StringTok{"productionCompany"}\NormalTok{, }\StringTok{"productionCoAmount"}\NormalTok{, }\StringTok{"productionCompanyCountry"}\NormalTok{, }\StringTok{"productionCountry"}\NormalTok{, }\StringTok{"productionCountriesAmount"}\NormalTok{, }\StringTok{"releaseDate"}\NormalTok{, }\StringTok{"voteCount"}\NormalTok{, }\StringTok{"voteAvg"}\NormalTok{, }\StringTok{"actors"}\NormalTok{, }\StringTok{"actorsPopularity"}\NormalTok{, }\StringTok{"actorsCharacter"}\NormalTok{, }\StringTok{"actorsAmount"}\NormalTok{, }\StringTok{"castWomenAmount"}\NormalTok{, }\StringTok{"CastMenAmount"}\NormalTok{)}
+
+\NormalTok{tipo }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"cuantitativa continua"}\NormalTok{, }\StringTok{"cuantitativa continua"}\NormalTok{, }\StringTok{"cuantitativa continua "}\NormalTok{, }\StringTok{"cuantitativa continua"}\NormalTok{, }\StringTok{"cualitativa nominal"}\NormalTok{, }\StringTok{"cualitativa nominal"}\NormalTok{, }\StringTok{"cualitativa nominal"}\NormalTok{, }\StringTok{"cualitativa nominal"}\NormalTok{, }\StringTok{"cualitativa nominal"}\NormalTok{, }\StringTok{"cualitativa nominal"}\NormalTok{, }\StringTok{"cuantitativa continua"}\NormalTok{, }\StringTok{"cualitativa nominal"}\NormalTok{, }\StringTok{"cuantitativa discreta"}\NormalTok{, }\StringTok{"cualitativa nominal"}\NormalTok{, }\StringTok{"cuantitativa discreta"}\NormalTok{, }\StringTok{"cualitativa nominal"}\NormalTok{, }\StringTok{"cualitativa nominal"}\NormalTok{, }\StringTok{" cuantitativa discreta"}\NormalTok{, }\StringTok{"cualitativa nominal"}\NormalTok{, }\StringTok{"cualitativa discreta"}\NormalTok{, }\StringTok{"cuantitativa continua"}\NormalTok{, }\StringTok{"cualitativa nominal"}\NormalTok{, }\StringTok{"cuantitativa continua"}\NormalTok{, }\StringTok{"cualitativa nominal"}\NormalTok{, }\StringTok{"cuantitativa discreta"}\NormalTok{, }\StringTok{"cuantitativa discreta"}\NormalTok{, }\StringTok{"cuantitativa discreta"}\NormalTok{)}
+
+\NormalTok{numero }\OtherTok{\textless{}{-}} \DecValTok{1}\SpecialCharTok{:}\DecValTok{27}
+
+\NormalTok{DataFrame.Variables }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(numero, variable, tipo)}
+
+\FunctionTok{print}\NormalTok{(DataFrame.Variables)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    numero                  variable                   tipo
+## 1       1                        id  cuantitativa continua
+## 2       2                popularity  cuantitativa continua
+## 3       3                    budget cuantitativa continua 
+## 4       4                   revenue  cuantitativa continua
+## 5       5            original_title    cualitativa nominal
+## 6       6          originalLanguage    cualitativa nominal
+## 7       7                     title    cualitativa nominal
+## 8       8                  homePage    cualitativa nominal
+## 9       9                     video    cualitativa nominal
+## 10     10                  director    cualitativa nominal
+## 11     11                   runtime  cuantitativa continua
+## 12     12                    genres    cualitativa nominal
+## 13     13              genresAmount  cuantitativa discreta
+## 14     14         productionCompany    cualitativa nominal
+## 15     15        productionCoAmount  cuantitativa discreta
+## 16     16  productionCompanyCountry    cualitativa nominal
+## 17     17         productionCountry    cualitativa nominal
+## 18     18 productionCountriesAmount  cuantitativa discreta
+## 19     19               releaseDate    cualitativa nominal
+## 20     20                 voteCount   cualitativa discreta
+## 21     21                   voteAvg  cuantitativa continua
+## 22     22                    actors    cualitativa nominal
+## 23     23          actorsPopularity  cuantitativa continua
+## 24     24           actorsCharacter    cualitativa nominal
+## 25     25              actorsAmount  cuantitativa discreta
+## 26     26           castWomenAmount  cuantitativa discreta
+## 27     27             CastMenAmount  cuantitativa discreta
+\end{verbatim}
+
+\hypertarget{investigue-si-las-variables-cuantitativas-siguen-una-distribuciuxf3n-normal-y-haga-una}{%
+\subsection{3. Investigue si las variables cuantitativas siguen una
+distribución normal y haga
+una}\label{investigue-si-las-variables-cuantitativas-siguen-una-distribuciuxf3n-normal-y-haga-una}}
+
+tabla de frecuencias de las variables cualitativas. Explique todos los
+resultados.
+
+Nos apoyamos de nuestros conocimientos previos en estadistica y
+utilizamos ademas la curtosis para determinar la concentracion de los
+datos entorno a la media. Encontramos que todas nuestras variables
+cuantitativas obtuvieron un coeficiente mayor a uno, es decir positivo
+(distribucion leptocúrtica)
+
+Referencia y expliacion detallada:
+\url{https://economipedia.com/definiciones/curtosis.html}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Libreria necesaria para utilizar la curtosis, por favor instalar}
+\FunctionTok{library}\NormalTok{(e1071)}
+
+\DocumentationTok{\#\# Popularidad}
+
+\NormalTok{popularity }\OtherTok{=}\NormalTok{ datos}\SpecialCharTok{$}\NormalTok{popularity}
+\StringTok{"Kurtosis de popularidad"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Kurtosis de popularidad"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Presupuesto}
+\NormalTok{budget }\OtherTok{=}\NormalTok{ datos}\SpecialCharTok{$}\NormalTok{budget}
+\StringTok{"Kurtosis de budget"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Kurtosis de budget"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kurtosis}\NormalTok{(budget)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 13.20779
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Ingresos}
+\NormalTok{revenue }\OtherTok{=}\NormalTok{ datos}\SpecialCharTok{$}\NormalTok{revenue}
+\StringTok{"Kurtosis de revenue"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Kurtosis de revenue"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kurtosis}\NormalTok{(revenue)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 55.89168
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Duración}
+\NormalTok{runtime }\OtherTok{=}\NormalTok{ datos}\SpecialCharTok{$}\NormalTok{runtime}
+\StringTok{"Kurtosis de runtime"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Kurtosis de runtime"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kurtosis}\NormalTok{(runtime)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 35.52866
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Votos}
+\NormalTok{vote\_count }\OtherTok{=}\NormalTok{ datos}\SpecialCharTok{$}\NormalTok{voteCount}
+\StringTok{"Kurtosis de VoteCount"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Kurtosis de VoteCount"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kurtosis}\NormalTok{(vote\_count)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 22.76501
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Promedio de votos}
+\NormalTok{vote\_average }\OtherTok{=}\NormalTok{ datos}\SpecialCharTok{$}\NormalTok{voteAvg}
+\StringTok{"Kurtosis de VoteAvg"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Kurtosis de VoteAvg"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kurtosis}\NormalTok{(vote\_average)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.484826
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Cantidad de generos}
+\NormalTok{GenresA }\OtherTok{=}\NormalTok{ datos}\SpecialCharTok{$}\NormalTok{genresAmount}
+\StringTok{"Kurtosis de GenresAmount"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Kurtosis de GenresAmount"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kurtosis}\NormalTok{(GenresA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.104824
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Cantidad de co productora }
+\NormalTok{ProductionCoA }\OtherTok{=}\NormalTok{ datos}\SpecialCharTok{$}\NormalTok{productionCoAmount}
+\StringTok{"Kurtosis de productionCoAmount"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Kurtosis de productionCoAmount"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kurtosis}\NormalTok{(ProductionCoA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 140.2735
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Cantidad de productoras por pais}
+\NormalTok{ProducCountrieA }\OtherTok{=}\NormalTok{ datos}\SpecialCharTok{$}\NormalTok{productionCountriesAmount}
+\StringTok{"Kurtosis de ProductCountriesAmount"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Kurtosis de ProductCountriesAmount"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kurtosis}\NormalTok{(ProducCountrieA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 751.2015
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Cantidad de actores}
+\NormalTok{ActorsA }\OtherTok{=}\NormalTok{ datos}\SpecialCharTok{$}\NormalTok{actorsAmount}
+\StringTok{"Kurtosis de ActorsAmount"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Kurtosis de ActorsAmount"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{kurtosis}\NormalTok{(ActorsA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 371.0959
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Cantiddad de actores Masculinos}
+\CommentTok{\#Esta kurtosis la realizamos en excel debido a que la base de datos presenta datos no numericos en ciertas celdas}
+\NormalTok{ActoresM }\OtherTok{=}\NormalTok{ datos}\SpecialCharTok{$}\NormalTok{castMenAmount}
+\NormalTok{ActoresM }\OtherTok{\textless{}{-}} \FunctionTok{na.omit}\NormalTok{(ActoresM)}
+\NormalTok{b }\OtherTok{\textless{}{-}} \FloatTok{43.93458}
+\StringTok{"Kurtosis de CastMenAmount"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Kurtosis de CastMenAmount"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 43.93458
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#kurtosis(ActoresM)}
+
+\CommentTok{\#Cantiddad de actrices Femenina}
+\CommentTok{\#Esta kurtosis la realizamos en excel debido a que la base de datos presenta datos no numericos en ciertas celdas}
+\NormalTok{ActricesF }\OtherTok{=}\NormalTok{ datos}\SpecialCharTok{$}\NormalTok{castWomenAmount}
+\NormalTok{a }\OtherTok{\textless{}{-}} \FloatTok{108.7062}
+\StringTok{"Kurtosis de CastWomenAmount"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Kurtosis de CastWomenAmount"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{a}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 108.7062
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#kurtosis(ActricesF)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{variables-cualitativas-tabla-de-frecuencias}{%
+\subparagraph{Variables cualitativas tabla de
+frecuencias}\label{variables-cualitativas-tabla-de-frecuencias}}
+
+Para las variables cualitativas realizamos tablas de frecuencia con la
+ayuda de data frames para poder observar y analizar los datos de mejor
+manera. Se ignoro la variable id debido a que se determino a que no
+aporta al analisis estadistico. Se noto que distintas variables contaban
+con valores vacios, se llenaron con NA y otros varios estaban
+acompañados por slash o pipe, por lo cual se decidio hacer un split para
+estos terminos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyr)}
+\CommentTok{\#Generos}
+\NormalTok{genres }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(}\FunctionTok{do.call}\NormalTok{(c, }\FunctionTok{lapply}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{genres, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{unlist}\NormalTok{(}\FunctionTok{strsplit}\NormalTok{(x, }\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{|"}\NormalTok{))))))}
+
+\CommentTok{\#Pagina}
+\NormalTok{homepage }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{homePage))}
+\NormalTok{homepage[homepage }\SpecialCharTok{==} \StringTok{""}\NormalTok{] }\OtherTok{\textless{}{-}} \ConstantTok{NA}
+\NormalTok{homepage }\OtherTok{\textless{}{-}} \FunctionTok{na.omit}\NormalTok{(homepage)}
+
+\CommentTok{\#Companias de produccion}
+\NormalTok{productionCompany }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(}\FunctionTok{do.call}\NormalTok{(c, }\FunctionTok{lapply}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{productionCompany, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{unlist}\NormalTok{(}\FunctionTok{strsplit}\NormalTok{(x, }\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{|"}\NormalTok{))))))}
+
+\CommentTok{\#pais de compania de produccion}
+\NormalTok{ProductionCompanyCountry }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(}\FunctionTok{do.call}\NormalTok{(c, }\FunctionTok{lapply}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{productionCompanyCountry, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{unlist}\NormalTok{(}\FunctionTok{strsplit}\NormalTok{(x, }\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{|"}\NormalTok{))))))}
+
+\CommentTok{\#pais productora}
+\NormalTok{ProductionCountry }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(}\FunctionTok{do.call}\NormalTok{(c, }\FunctionTok{lapply}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{productionCountry, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{unlist}\NormalTok{(}\FunctionTok{strsplit}\NormalTok{(x, }\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{|"}\NormalTok{))))))}
+
+\CommentTok{\#video}
+\NormalTok{video }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{video))}
+\NormalTok{video[video }\SpecialCharTok{==} \StringTok{""}\NormalTok{] }\OtherTok{\textless{}{-}} \ConstantTok{NA}
+\NormalTok{video }\OtherTok{\textless{}{-}} \FunctionTok{na.omit}\NormalTok{(video)}
+
+\CommentTok{\#Director}
+\NormalTok{director }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{director))}
+\NormalTok{director[director }\SpecialCharTok{==} \StringTok{""}\NormalTok{] }\OtherTok{\textless{}{-}} \ConstantTok{NA}
+\NormalTok{director }\OtherTok{\textless{}{-}} \FunctionTok{na.omit}\NormalTok{(director)}
+
+\CommentTok{\#Actores}
+\NormalTok{actors }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(}\FunctionTok{do.call}\NormalTok{(c, }\FunctionTok{lapply}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{actors, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{unlist}\NormalTok{(}\FunctionTok{strsplit}\NormalTok{(x, }\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{|"}\NormalTok{))))))}
+\NormalTok{actors }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{actors))}
+\NormalTok{actors[actors }\SpecialCharTok{==} \StringTok{""}\NormalTok{] }\OtherTok{\textless{}{-}} \ConstantTok{NA}
+\NormalTok{actors }\OtherTok{\textless{}{-}} \FunctionTok{na.omit}\NormalTok{(actors)}
+
+\CommentTok{\#ActorsCharacter}
+\NormalTok{character }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(}\FunctionTok{do.call}\NormalTok{(c, }\FunctionTok{lapply}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{actorsCharacter, }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{unlist}\NormalTok{(}\FunctionTok{strsplit}\NormalTok{(x, }\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{|"}\NormalTok{))))))}
+\NormalTok{character[character }\SpecialCharTok{==} \StringTok{""}\NormalTok{] }\OtherTok{\textless{}{-}} \ConstantTok{NA}
+\NormalTok{character }\OtherTok{\textless{}{-}} \FunctionTok{na.omit}\NormalTok{(character)}
+
+\CommentTok{\#Titulo original}
+\NormalTok{original\_title }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{originalTitle))}
+
+\CommentTok{\#Titulo}
+\NormalTok{title }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{title))}
+
+\CommentTok{\#Lenguaje Original}
+\NormalTok{language }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{originalLanguage))}
+
+\CommentTok{\#fecha}
+\NormalTok{release\_date }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{releaseDate))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{responda-las-siguientes-preguntas}{%
+\subsection{4. Responda las siguientes
+preguntas:}\label{responda-las-siguientes-preguntas}}
+
+\hypertarget{cuuxe1l-es-la-peor-peluxedcula-de-acuerdo-a-los-votos-de-todos-los-usuarios}{%
+\subsubsection{4.4 ¿Cuál es la peor película de acuerdo a los votos de
+todos los
+usuarios?}\label{cuuxe1l-es-la-peor-peluxedcula-de-acuerdo-a-los-votos-de-todos-los-usuarios}}
+
+A continuacion las dos peor votadas
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# peorvotadas \textless{}{-} datos[order(datos$voteAvg),]}
+\CommentTok{\#peorvotadas \textless{}{-} peorvotadas[1,]}
+\CommentTok{\#na.omit(peorvotadas)}
+\NormalTok{peorvotadas }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{voteAvg, datos}\SpecialCharTok{$}\NormalTok{title)}
+\NormalTok{lapeor }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(peorvotadas[}\FunctionTok{order}\NormalTok{(peorvotadas}\SpecialCharTok{$}\NormalTok{datos.voteAvg),])}
+\FunctionTok{head}\NormalTok{(lapeor,}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      datos.voteAvg
+## 9787           1.3
+## 9707           1.5
+##                                                                           datos.title
+## 9787 DAKAICHI -I'm Being Harassed by the Sexiest Man of the Year- The Movie: In Spain
+## 9707                                                DRagON BALL P2 2wice dropda bbeet
+\end{verbatim}
+
+\hypertarget{cuuxe1ntas-peluxedculas-se-hicieron-en-cada-auxf1o-en-quuxe9-auxf1o-se-hicieron-muxe1s-peluxedculas-haga-un-gruxe1fico-de-barras}{%
+\subsubsection{4.5 ¿Cuántas películas se hicieron en cada año? ¿En qué
+año se hicieron más películas? Haga un gráfico de
+barras}\label{cuuxe1ntas-peluxedculas-se-hicieron-en-cada-auxf1o-en-quuxe9-auxf1o-se-hicieron-muxe1s-peluxedculas-haga-un-gruxe1fico-de-barras}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Dates }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{title, datos}\SpecialCharTok{$}\NormalTok{releaseDate)}
+\NormalTok{PorAnioDesc }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(Dates[}\FunctionTok{order}\NormalTok{(Dates}\SpecialCharTok{$}\NormalTok{datos.releaseDate),])}
+\NormalTok{year1 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\FunctionTok{table}\NormalTok{(}\FunctionTok{substring}\NormalTok{(PorAnioDesc}\SpecialCharTok{$}\NormalTok{datos.releaseDate,}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{)))}
+\NormalTok{finales }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{substring}\NormalTok{(PorAnioDesc}\SpecialCharTok{$}\NormalTok{datos.releaseDate,}\DecValTok{1}\NormalTok{,}\DecValTok{4}\NormalTok{))}
+\FunctionTok{hist}\NormalTok{(finales,}\AttributeTok{breaks =} \DecValTok{100}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{AnalisisMineria1_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\hypertarget{cuuxe1l-es-el-guxe9nero-principal-de-las-20-peluxedculas-muxe1s-recientes-cuuxe1l-es-el-guxe9nero-principal-que-predomina-en-el-conjunto-de-datos-represuxe9ntelo-usando-un-gruxe1fico}{%
+\subsubsection{4.6 ¿Cuál es el género principal de las 20 películas más
+recientes? ¿Cuál es el género principal que predomina en el conjunto de
+datos? Represéntelo usando un
+gráfico}\label{cuuxe1l-es-el-guxe9nero-principal-de-las-20-peluxedculas-muxe1s-recientes-cuuxe1l-es-el-guxe9nero-principal-que-predomina-en-el-conjunto-de-datos-represuxe9ntelo-usando-un-gruxe1fico}}
+
+A continuacion el top20:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{LicaPopular }\OtherTok{\textless{}{-}}\NormalTok{ datos[}\FunctionTok{order}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{popularity,}\AttributeTok{decreasing =} \ConstantTok{TRUE}\NormalTok{),]}
+\NormalTok{top20 }\OtherTok{\textless{}{-}}\NormalTok{ LicaPopular[}\DecValTok{1}\SpecialCharTok{:}\DecValTok{20}\NormalTok{,}\FunctionTok{c}\NormalTok{(}\StringTok{"genres"}\NormalTok{)]}
+\NormalTok{genres20 }\OtherTok{\textless{}{-}} \FunctionTok{unlist}\NormalTok{(}\FunctionTok{strsplit}\NormalTok{(}\FunctionTok{as.character}\NormalTok{(top20), }\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{|"}\NormalTok{))}
+\NormalTok{genres20}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Action"          "Adventure"       "Fantasy"         "Science Fiction"
+##  [5] "Action"          "Adventure"       "Science Fiction" "Animation"      
+##  [9] "Comedy"          "Family"          "Music"           "Horror"         
+## [13] "Action"          "Science Fiction" "Animation"       "Comedy"         
+## [17] "Family"          "Fantasy"         "Comedy"          "Fantasy"        
+## [21] "Adventure"       "Action"          "Thriller"        "Science Fiction"
+## [25] "Action"          "Adventure"       "Science Fiction" "Action"         
+## [29] "Adventure"       "Science Fiction" "Thriller"        "Action"         
+## [33] "Thriller"        "Action"          "Comedy"          "Crime"          
+## [37] "Thriller"        "Action"          "Adventure"       "Fantasy"        
+## [41] "Action"          "Thriller"        "Crime"           "Drama"          
+## [45] "Horror"          "Mystery"         "Animation"       "Comedy"         
+## [49] "Family"          "Crime"           "Action"          "Thriller"       
+## [53] "Animation"       "Action"          "Adventure"       "Fantasy"        
+## [57] "Drama"           "History"         "Adventure"       "Horror"         
+## [61] "Thriller"
+\end{verbatim}
+
+Para encontrar el genero principal predominante debemos separar la
+lista, debido a que las peliculas cuentan con mas de un genero.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{getmode }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(v) \{}
+\NormalTok{  uniqv }\OtherTok{\textless{}{-}} \FunctionTok{unique}\NormalTok{(v)}
+\NormalTok{  uniqv[}\FunctionTok{which.max}\NormalTok{(}\FunctionTok{tabulate}\NormalTok{(}\FunctionTok{match}\NormalTok{(v, uniqv)))]}
+\NormalTok{\}}
+\NormalTok{topGenre20 }\OtherTok{\textless{}{-}} \FunctionTok{getmode}\NormalTok{(genres20)}
+\StringTok{"Se encontro que el genero principal de las peliculas es:"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Se encontro que el genero principal de las peliculas es:"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{topGenre20}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Action"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{totalGenres }\OtherTok{\textless{}{-}} \FunctionTok{unlist}\NormalTok{(}\FunctionTok{strsplit}\NormalTok{(}\FunctionTok{as.character}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{genres), }\StringTok{"}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{|"}\NormalTok{))}
+\FunctionTok{barplot}\NormalTok{(}\FunctionTok{table}\NormalTok{(totalGenres))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{AnalisisMineria1_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+\hypertarget{las-peluxedculas-de-quuxe9-genero-principal-obtuvieron-mayores-ganancias}{%
+\subsubsection{4.7 ¿Las películas de qué genero principal obtuvieron
+mayores
+ganancias?}\label{las-peluxedculas-de-quuxe9-genero-principal-obtuvieron-mayores-ganancias}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{worth }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(datos}\SpecialCharTok{$}\NormalTok{revenue, datos}\SpecialCharTok{$}\NormalTok{genres, datos}\SpecialCharTok{$}\NormalTok{title)}
+\NormalTok{ordenadas }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(worth[}\FunctionTok{order}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{datos}\SpecialCharTok{$}\NormalTok{revenue), ])}
+\StringTok{"Las peliculas del genero de accion fueron las que obtuvieron mayores ganancias"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Las peliculas del genero de accion fueron las que obtuvieron mayores ganancias"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(ordenadas, }\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      datos.revenue                             datos.genres
+## 3211    2847246203 Action|Adventure|Fantasy|Science Fiction
+## 5953    2797800564         Adventure|Science Fiction|Action
+## 308     2187463944                            Drama|Romance
+## 4948    2068223624 Action|Adventure|Science Fiction|Fantasy
+## 5954    2046239637         Adventure|Action|Science Fiction
+##                       datos.title
+## 3211                       Avatar
+## 5953            Avengers: Endgame
+## 308                       Titanic
+## 4948 Star Wars: The Force Awakens
+## 5954       Avengers: Infinity War
+\end{verbatim}
+
+\end{document}
