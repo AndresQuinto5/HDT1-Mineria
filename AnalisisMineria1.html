@@ -193,8 +193,12 @@ pre code {
 ## 
 ##     intersect, setdiff, setequal, union</code></pre>
 <pre class="r"><code>datos &lt;- read.csv(&quot;movies.csv&quot;)</code></pre>
-<p>A continuacion los datos recopilados de la base de datos y sus caracteristicas</p>
-<p>El conjunto de datos esta compuesto por 10000 observaciones y 27 variables.</p>
+<div id="a-continuacion-los-datos-recopilados-de-la-base-de-datos-y-sus-caracteristicas" class="section level2">
+<h2>A continuacion los datos recopilados de la base de datos y sus caracteristicas</h2>
+</div>
+<div id="el-conjunto-de-datos-esta-compuesto-por-10000-observaciones-y-27-variables." class="section level2">
+<h2>El conjunto de datos esta compuesto por 10000 observaciones y 27 variables.</h2>
+</div>
 <div id="diga-el-tipo-de-cada-una-de-las-variables-cualitativa-ordinal-o-nominal-cuantitativa" class="section level2">
 <h2>2. Diga el tipo de cada una de las variables (cualitativa ordinal o nominal, cuantitativa</h2>
 <p>continua, cuantitativa discreta)</p>
@@ -239,7 +243,7 @@ print(DataFrame.Variables)</code></pre>
 <div id="investigue-si-las-variables-cuantitativas-siguen-una-distribución-normal-y-haga-una" class="section level2">
 <h2>3. Investigue si las variables cuantitativas siguen una distribución normal y haga una</h2>
 <p>tabla de frecuencias de las variables cualitativas. Explique todos los resultados.</p>
-<p>Nos apoyamos de nuestros conocimientos previos en estadistica y utilizamos ademas la curtosis para determinar la concentracion de los datos entorno a la media.</p>
+<p>Nos apoyamos de nuestros conocimientos previos en estadistica y utilizamos ademas la curtosis para determinar la concentracion de los datos entorno a la media. Encontramos que todas nuestras variables cuantitativas obtuvieron un coeficiente mayor a uno, es decir positivo (distribucion leptocúrtica)</p>
 <p>Referencia y expliacion detallada: <a href="https://economipedia.com/definiciones/curtosis.html" class="uri">https://economipedia.com/definiciones/curtosis.html</a></p>
 <pre class="r"><code>#Libreria necesaria para utilizar la curtosis, por favor instalar
 library(e1071)
@@ -325,6 +329,59 @@ a &lt;- 108.7062
 <pre class="r"><code>a</code></pre>
 <pre><code>## [1] 108.7062</code></pre>
 <pre class="r"><code>#kurtosis(ActricesF)</code></pre>
+<div id="variables-cualitativas-tabla-de-frecuencias" class="section level5">
+<h5>Variables cualitativas tabla de frecuencias</h5>
+<pre class="r"><code>library(tidyr)
+#Generos
+genres &lt;- data.frame(table(do.call(c, lapply(datos$genres, function(x) unlist(strsplit(x, &quot;\\|&quot;))))))
+
+#Pagina
+homepage &lt;- data.frame(table(datos$homePage))
+homepage[homepage == &quot;&quot;] &lt;- NA
+homepage &lt;- na.omit(homepage)
+
+#Companias de produccion
+productionCompany &lt;- data.frame(table(do.call(c, lapply(datos$productionCompany, function(x) unlist(strsplit(x, &quot;\\|&quot;))))))
+
+#pais de compania de produccion
+ProductionCompanyCountry &lt;- data.frame(table(do.call(c, lapply(datos$productionCompanyCountry, function(x) unlist(strsplit(x, &quot;\\|&quot;))))))
+
+#pais productora
+ProductionCountry &lt;- data.frame(table(do.call(c, lapply(datos$productionCountry, function(x) unlist(strsplit(x, &quot;\\|&quot;))))))
+
+#video
+video &lt;- data.frame(table(datos$video))
+video[video == &quot;&quot;] &lt;- NA
+video &lt;- na.omit(video)
+
+#Director
+director &lt;- data.frame(table(datos$director))
+director[director == &quot;&quot;] &lt;- NA
+director &lt;- na.omit(director)
+
+#Actores
+actors &lt;- data.frame(table(do.call(c, lapply(datos$actors, function(x) unlist(strsplit(x, &quot;\\|&quot;))))))
+actors &lt;- data.frame(table(datos$actors))
+actors[actors == &quot;&quot;] &lt;- NA
+actors &lt;- na.omit(actors)
+
+#ActorsCharacter
+character &lt;- data.frame(table(do.call(c, lapply(datos$actorsCharacter, function(x) unlist(strsplit(x, &quot;\\|&quot;))))))
+character[character == &quot;&quot;] &lt;- NA
+character &lt;- na.omit(character)
+
+#Titulo original
+original_title &lt;- data.frame(table(datos$originalTitle))
+
+#Titulo
+title &lt;- data.frame(table(datos$title))
+
+#Lenguaje Original
+language &lt;- data.frame(table(datos$originalLanguage))
+
+#fecha
+release_date &lt;- data.frame(table(datos$releaseDate))</code></pre>
+</div>
 </div>
 
 
