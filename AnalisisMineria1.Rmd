@@ -264,3 +264,36 @@ ordenadas <- data.frame(worth[order(-datos$revenue), ])
 head(ordenadas, 5)
 
 ```
+### 4.13 ¿En qué meses se han visto los lanzamientos con mejores ingresos?¿cuantas películas, en promedio, se han lanzado por mes?
+
+
+```{r}
+month<-datos %>% separate(releaseDate, c("mes","dia","anio"),sep="\\/")
+sort(table(month$mes), TRUE)
+
+```
+
+Segun los datos el mes con mas lanzamientos es septiembre con 1331.
+
+### 4.14 ¿Cómo se correlacionan las calificaciones con el éxito comercial? 
+```{r}
+
+ingresos <- data.frame(datos$budget, datos$revenue, datos$originalTitle)
+correlacion <- data.frame(datos$revenue, datos$popularity, datos$originalTitle)
+plot(correlacion[,2], ingresos[,1], main="Diagrama de Dispersion", xlab="Popularity", ylab="Revenue")
+abline(lm(ingresos[,1]~correlacion[,2]), col="blue")
+```
+Como podemos ver por el grafico de dispersion, no hay correlacion entre las calificaciones y el exito comercial
+
+### 4.15¿A qué género principal pertenecen las películas más largas?
+
+```{r WARNING = FALSE}
+
+popularidad<-datos[with(datos,order(-datos$popularity)),]
+categoria<-popularidad %>%separate(genres,c("categoria1","categoria2","categoria3","categoria4"),sep="\\|")
+tiempo<-categoria[with(categoria,order(-categoria$runtime)),]
+head(tiempo$categoria1,5)
+```
+
+
+Como podemos ver por los resultados, el genero principal al que pertenecen las peliculas mas largas son los documentales y los dramas en el top 5 segun el tiempo de duracion
