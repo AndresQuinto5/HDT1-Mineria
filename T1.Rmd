@@ -1,0 +1,80 @@
+---
+title: "HT1"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+df <- read.csv("movies.csv")
+
+```
+
+```{r}
+topbudget <- order(df$budget, decreasing = T)
+```
+
+```{r}
+df[topbudget,c("title",("budget"))]
+```
+
+```{r}
+toprevenue <- order(df$revenue, decreasing = T)
+```
+
+
+```{r}
+df[toprevenue,c("title","revenue")]
+```
+
+
+
+```{r}
+topcount <- order(df$voteCount, decreasing = T)
+```
+
+```{r}
+df[topcount,c("title","voteCount")]
+
+```
+
+
+```{r}
+leastLiked <- order(df$voteAvg,decreasing = F)
+
+```
+
+```{r}
+df[leastLiked,c("title","voteAvg")]
+```
+
+
+
+```{r}
+dv = as.Date(df$releaseDate,"%Y")
+```
+
+```{r}
+year <- as.numeric(format(dv,"%Y"))
+
+```
+
+```{r}
+plot(x = year, xlab = "Nivel educativo", ylab = "Frecuencia",)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
