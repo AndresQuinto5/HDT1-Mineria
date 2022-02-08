@@ -342,6 +342,23 @@ hist(datos$revenue, breaks = 15, main = "Peliculas por ingreso",xlab = "Ingresos
 ```{r}
 plot(x = datos$budget, y = datos$revenue, main = "Presupuesto vs. Ingresos", xlab = "Presupuesto", ylab = "Ingresos")
 ```
+### 4.12 ¿Se asocian ciertos meses de lanzamiento con mejores ingresos?
+
+```{r}
+
+date <- datos %>%separate(releaseDate, c("y", "m", "d"), sep = "-")
+
+month_mean <- aggregate(date$revenue, list(date$m), mean)
+
+print(month_mean)
+
+y <- month_mean$x
+x <- month_mean$Group.1
+
+barplot(y, names.arg = x, xlab= "mes", ylab = "ingresos", main="Ganancias por mes", col = "green")
+```
+
+Segun la grafica podemos ver que el mes donde se obtubo mejores ganancias fue en junio, seguido por mayo y por ultimo por julio
 
 ### 4.13 ¿En qué meses se han visto los lanzamientos con mejores ingresos?¿cuantas películas, en promedio, se han lanzado por mes?
 
