@@ -3,9 +3,9 @@ title: "HDT1"
 author: "AndresEmilioQ, Mirka M, Oscar de Leon"
 date: "4/2/2022"
 output:
-  word_document: default
   html_document:
     code_folding: hide
+  word_document: default
   pdf_document: default
 ---
 
@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 ```{r}
 library(dplyr)
+library(ggplot2)
 datos <- read.csv("movies.csv")
 ```
 
@@ -263,83 +264,3 @@ ordenadas <- data.frame(worth[order(-datos$revenue), ])
 head(ordenadas, 5)
 
 ```
-
-### 4.8 ¿La cantidad de actores influye en los ingresos de las películas?¿se han hecho películas con más actores en los últimos años?
-
-```{r}
-revenueByMovie <- order(datos$revenue, decreasing = T)
-```
-
-```{r}
-datos[revenueByMovie,c("actorsAmount","revenue")]
-```
-
-### 4.9 ¿Es posible que la cantidad de hombres y mujeres en el reparto influya en la popularidad y los ingresos de las películas? 
-
-```{r}
-womenMoviePopularity <- order(datos$popularity, decreasing = T)
-```
-
-
-```{r}
-womenMovieRevenue <- order(datos$revenue, decreasing = T)
-```
-
-```{r}
-menMoviePopularity <- order(datos$popularity, decreasing = T)
-```
-
-```{r}
-menMovieRevenue <- order(datos$revenue, decreasing = T)
-```
-
-
-```{r}
-datos[womenMoviePopularity,c("castWomenAmount","popularity")]
-```
-
-
-```{r}
-datos[menMoviePopularity,c("castMenAmount","popularity")]
-```
-
-
-
-```{r}
-datos[womenMovieRevenue,c("castWomenAmount","revenue")]
-```
-
-
-```{r}
-datos[menMovieRevenue,c("castMenAmount","revenue")]
-```
-
-
-
-
-### 4.10 ¿Quiénes son los directores que hicieron las 20 películas mejor calificadas? 
-
-```{r}
-topvotesDirector <- order(datos$voteAvg, decreasing = T)
-```
-
-
-```{r}
-datos[topvotesDirector,c("director","voteAvg")]
-```
-
-### 4.11 ¿Cómo se correlacionan los presupuestos con los ingresos? ¿Los altos presupuestos significan altos ingresos? Haga los gráficos que necesite, histograma, diagrama de dispersión
-
-
-```{r}
-hist(datos$budget, breaks = 15, main = "Peliculas por presupuesto",xlab = "Presupuesto", ylab = "Cantidad de peliculas")
-```
-
-
-```{r}
-hist(datos$revenue, breaks = 15, main = "Peliculas por ingreso",xlab = "Ingresos", ylab = "Cantidad de peliculas")
-```
-
-
-```{r}
-plot(x = datos$budget, y = datos$revenue, main = "Presupuesto vs. Ingresos", xlab = "Presupuesto", ylab = "Ingresos")
