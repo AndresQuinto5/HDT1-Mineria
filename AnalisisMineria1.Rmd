@@ -52,7 +52,7 @@ library(e1071)
 
 popularity = datos$popularity
 "Kurtosis de popularidad"
-
+kurtosis(popularity)
 #Presupuesto
 budget = datos$budget
 "Kurtosis de budget"
@@ -173,6 +173,37 @@ release_date <- data.frame(table(datos$releaseDate))
 ```
 
 ## 4. Responda las siguientes preguntas:  
+### 4.1 ¿Cuáles son las 10 películas que contaron con más presupuesto?
+
+```{r}
+topbudget <- order(datos$budget, decreasing = T)
+```
+
+```{r}
+datos[topbudget,c("title",("budget"))]
+```
+
+### 4.2 ¿Cuáles son las 10 películas que más ingresos tuvieron?
+```{r}
+toprevenue <- order(datos$revenue, decreasing = T)
+```
+
+
+```{r}
+datos[toprevenue,c("title","revenue")]
+```
+
+### 4.3 ¿Cuál es la película que más votos tuvo?
+
+```{r}
+topcount <- order(datos$voteCount, decreasing = T)
+```
+
+```{r}
+datos[topcount,c("title","voteCount")]
+
+```
+
 ### 4.4 ¿Cuál es la peor película de acuerdo a los votos de todos los usuarios?
 A continuacion las dos peor votadas
 ```{r}
