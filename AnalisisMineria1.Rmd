@@ -347,12 +347,15 @@ plot(x = datos$budget, y = datos$revenue, main = "Presupuesto vs. Ingresos", xla
 
 
 ```{r}
-month<-datos %>% separate(releaseDate, c("mes","dia","anio"),sep="\\/")
-sort(table(month$mes), decreasing = TRUE)
+
+date <- datos %>%separate(releaseDate, c("y","m","d"), sep= "-")
+sort(table(date$m), TRUE)
+
+
 
 ```
+Segun los datos el mes con mas lanzamientos es septiembre con 1079, seguido de octubre con 1069 y en tercer lugar esta diciembre con 935
 
-Segun los datos el mes con mas lanzamientos es septiembre.
 
 ### 4.14 ¿Cómo se correlacionan las calificaciones con el éxito comercial? 
 ```{r}
